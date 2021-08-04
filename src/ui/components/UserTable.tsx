@@ -1,10 +1,10 @@
-import React from 'react';
+import React  from 'react';
 import Filter from './Filter';
 
 const UserTable: React.FC = () => {
 
     const handleEditUser = () => {
-        console.log('');
+        console.log('Keep It Up, babes');
     };
 
     const handleDeleteUser = () => {
@@ -13,7 +13,7 @@ const UserTable: React.FC = () => {
 
     return (
         <div className="admin-user-table" style={{marginTop: '7rem'}}>
-            <Filter />
+            {/* <Filter /> */}
             
             <div style={{border: '1px solid black', width: '50rem', marginTop: '2rem'}}>
                 <h2 style={{textAlign: 'center', textDecoration: 'underline'}}>Users</h2>
