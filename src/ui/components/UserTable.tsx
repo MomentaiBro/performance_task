@@ -82,7 +82,9 @@ const UserTable: React.FC = () => {
                                         { isValid ? (
                                             <div className="check"></div>
                                         ) : (
-                                            <div className="cross"></div>
+                                            <div className="xBox">
+                                                <div className="slash"></div>
+                                            </div>
                                         )}
                                     </div>
                                     <div style={{width: '15%'}}>{user.created_at}</div>

@@ -81,5 +81,19 @@ body {
   border-right: 7px solid #78b13f;
 }
 
-.cross {
+.xBox {
+  display: inline-flex;
+  max-height: 35px;
+  width: 35px;
+  background-color: #bd0000;
+  justify-content: center;
+  align-items: center;
+}
+
+.slash {
+  position: relative;
+  height: 35px;
+  width: 3px;
+  background: white;
+  transform: rotate(-45deg);
 }
