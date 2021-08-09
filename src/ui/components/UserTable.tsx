@@ -12,7 +12,7 @@ type UserType = {
     created_at: Date;
     district: number;
     active: boolean;
-}[]
+}[];
 
 
 const UserTable: React.FC = () => {
@@ -33,8 +33,9 @@ const UserTable: React.FC = () => {
         console.log('Hey jo');
     };
 
-    const handleDeleteUser = () => {
-        console.log('');
+    const handleDeleteUser = (users: UserType, id: number) => {
+        users.filter(user => 
+            user.id !== id);
     };
 
     
@@ -61,19 +62,29 @@ const UserTable: React.FC = () => {
                     </li>
 
                     {users && users.map(user => { 
+
+                        const isValid = user.verified;
                         return (
                             <li 
                                 key={user.id}
                                 className="user_block"
                                 style={{marginBottom: '.5rem', padding: '.5rem'}}>
-                                
+                            
                                 <div  style={{display: 'flex', justifyContent: 'space-evenly', textAlign: 'center', alignItems: 'center', marginBottom: '0.5rem'}}>
                                     <div style={{width: '2%'}}>{user.id}</div>
                                     <div style={{width: '10%'}}>{user.last_name}</div>
                                     <div style={{width: '10%'}}>{user.first_name}</div>
                                     <div style={{width: '2%'}}>{user.middle_initial}</div>
                                     <div style={{width: '20%'}}>{user.district}</div>
-                                    <div style={{width: '5%'}}>{user.verified}</div>
+                                    <div 
+                                        style={{width: '5%'}}
+                                    >
+                                        { isValid ? (
+                                            <div className="check"></div>
+                                        ) : (
+                                            <div className="cross"></div>
+                                        )}
+                                    </div>
                                     <div style={{width: '15%'}}>{user.created_at}</div>
                                     <div style={{width: '15%'}}>{user.email}</div>
                                     <div style={{width: '5%', display: 'flex', justifyContent: 'space-between', paddingRight: '2rem'}}>
@@ -84,7 +95,13 @@ const UserTable: React.FC = () => {
                                         >
                                                 Edit
                                         </button>
-                                        <button className="smol dltBtn" type="button">X</button>
+                                        <button 
+                                            className="smol dltBtn" 
+                                            type="button"
+                                            
+                                        >
+                                            X
+                                        </button>
                                     </div>
                                 </div>
                             </li>

@@ -48,16 +48,38 @@ body {
   margin: 5px;
   font-size: 12px;
   color: aliceblue;
-  border: 0px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.21);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.21);
+  border-radius: 4px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 }
 
 .editBtn {
   background: #7fccde;
   box-shadow: 0px 4px 0px #6db0be;
+  cursor: pointer;
 }
 
 .dltBtn {
   /* margin-left: 10px; */
   background: #fa5a5a;
   box-shadow: 0px 4px 0px #e04342;
+  cursor: pointer;
+}
+
+.check {
+  display: inline-block;
+  z-index: -3;
+  transform: rotate(45deg);
+  height: 24px;
+  width: 12px;
+  border-bottom: 7px solid #78b13f;
+  border-right: 7px solid #78b13f;
+}
+
+.cross {
 }
