@@ -30,7 +30,7 @@ const UserTable: React.FC = () => {
 
 
     const handleEditUser = () => {
-        console.log('');
+        console.log('Hey jo');
     };
 
     const handleDeleteUser = () => {
@@ -45,8 +45,8 @@ const UserTable: React.FC = () => {
             <Filter />
             <div style={{width: '100vw', marginTop: '2rem'}}>
                 <h2 style={{textAlign: 'center', textDecoration: 'underline'}}> Users </h2>
-                <ul style={{listStyle: 'none', paddingLeft: 0, height: '30rem', overflow: "auto"}}>
-                    <li className="admin-user-table-legend" style={{position: 'sticky', top: 0, fontWeight: 700, borderBottom: '1px solid black', marginBottom: '1rem', padding: '1rem'}}>
+                <ul className="theUl" style={{listStyle: 'none', paddingLeft: 0, height: '30rem', overflow: "auto"}}>
+                    <li className="admin-user-table-legend" style={{position: 'sticky', top: 0, fontWeight: 700, borderBottom: '1px solid black', marginBottom: '1rem'}}>
                         <div style={{display: 'flex', justifyContent: 'space-evenly', textAlign: 'center'}}>
                             <div style={{width: '2%'}}>ID</div>
                             <div style={{width: '10%'}}>Last Name</div>
@@ -77,8 +77,14 @@ const UserTable: React.FC = () => {
                                     <div style={{width: '15%'}}>{user.created_at}</div>
                                     <div style={{width: '15%'}}>{user.email}</div>
                                     <div style={{width: '5%', display: 'flex', justifyContent: 'space-between', paddingRight: '2rem'}}>
-                                        <button type="button">Edit</button>
-                                        <button type="button">Delete</button>
+                                        <button 
+                                            className="smol editBtn" 
+                                            type="button"
+                                            onClick={handleEditUser}
+                                        >
+                                                Edit
+                                        </button>
+                                        <button className="smol dltBtn" type="button">X</button>
                                     </div>
                                 </div>
                             </li>

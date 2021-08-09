@@ -1,31 +1,63 @@
 body {
   background: whitesmoke;
-  font-family: "Lato", sans-serif;
+  font-family: "Helvetica", sans-serif;
   font-size: 0.9rem;
   height: 100%;
   margin: 0;
 }
 
 .app-admin-panel {
-  /* background: rgb(247, 200, 200); */
+  background: white;
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .admin-user-table-legend {
+  background-color: white;
 }
+
 .admin-user-table-legend div {
   height: 100%;
   font-size: larger;
 }
 
+.theUl {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .user_block {
-  background-color: cornsilk;
-  transition: 0.3s;
+  background-color: whitesmoke;
+  transition: 0.1s;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
 }
 
 .user_block:hover {
-  background-color: blanchedalmond;
-  box-shadow: 0 2px 10px black;
+  background-color: rgb(241, 240, 240);
+  box-shadow: 0px 3px black;
+  border: 1px solid black;
+}
+
+.smol {
+  padding: 2px 10px;
+  margin: 5px;
+  font-size: 12px;
+  color: aliceblue;
+  border: 0px;
+}
+
+.editBtn {
+  background: #7fccde;
+  box-shadow: 0px 4px 0px #6db0be;
+}
+
+.dltBtn {
+  /* margin-left: 10px; */
+  background: #fa5a5a;
+  box-shadow: 0px 4px 0px #e04342;
 }
