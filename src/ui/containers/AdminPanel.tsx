@@ -11,7 +11,5 @@ const AdminPanel: React.FC = () => {
         </div>
     );
 };
-// AdminPanel.propTypes = {
-//     users: propTypes.object
-// };
+
 export default AdminPanel;
