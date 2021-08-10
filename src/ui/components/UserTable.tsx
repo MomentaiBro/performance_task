@@ -1,6 +1,7 @@
-import React, { useEffect, useState }  from 'react';
+import React, { useEffect, ChangeEvent, useState }  from 'react';
 import Filter from './Filter';
 import '../stylesheets/main.css';
+import { timingSafeEqual } from 'crypto';
 
 type UserType = {
     id: number;
@@ -33,12 +34,14 @@ const UserTable: React.FC = () => {
         console.log('Hey jo');
     };
 
-    const handleDeleteUser = (users: UserType, id: number) => {
-        users.filter(user => 
-            user.id !== id);
+    const handleDeleteUser = (id: number): void => {
+        setUsers(users.filter((user)=>{
+            return user.id != id;
+        }));
     };
 
-    
+    // const handleAddUser = (): void => {
+    // }
 
 
     return (
@@ -64,6 +67,8 @@ const UserTable: React.FC = () => {
                     {users && users.map(user => { 
 
                         const isValid = user.verified;
+
+
                         return (
                             <li 
                                 key={user.id}
@@ -93,14 +98,15 @@ const UserTable: React.FC = () => {
                                         <button 
                                             className="smol editBtn" 
                                             type="button"
-                                            onClick={handleEditUser}
                                         >
                                                 Edit
                                         </button>
                                         <button 
                                             className="smol dltBtn" 
                                             type="button"
-                                            
+                                            onClick={()=> {
+                                                handleDeleteUser(user.id);
+                                            }}
                                         >
                                             X
                                         </button>
