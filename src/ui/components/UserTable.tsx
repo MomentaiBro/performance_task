@@ -65,7 +65,8 @@ const UserTable: React.FC = () => {
                             <button> 
                                 Delete 
                             </button>
-                            <button> Go Back </button>
+                            <button
+                                onClick={() => showModal()}> Go Back </button>
                         </div>
                     </div>
                 </div>    
