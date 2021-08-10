@@ -22,6 +22,8 @@ body {
 .admin-user-table-legend div {
   height: 100%;
   font-size: larger;
+  z-index: 2;
+  display: inline-block;
 }
 
 .theUl {
@@ -56,6 +58,10 @@ body {
   border-bottom: 4px solid rgba(0, 0, 0, 0.21);
   border-radius: 4px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.btnHolder {
+  display: block;
 }
 
 .editBtn {

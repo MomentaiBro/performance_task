@@ -52,22 +52,40 @@ const UserTable: React.FC = () => {
                 <ul className="theUl" style={{listStyle: 'none', paddingLeft: 0, height: '30rem', overflow: "auto"}}>
                     <li className="admin-user-table-legend" style={{position: 'sticky', top: 0, fontWeight: 700, borderBottom: '1px solid black', marginBottom: '1rem'}}>
                         <div style={{display: 'flex', justifyContent: 'space-evenly', textAlign: 'center'}}>
-                            <div style={{width: '2%'}}>ID</div>
-                            <div style={{width: '10%'}}>Last Name</div>
-                            <div style={{width: '10%'}}>First Name</div>
-                            <div style={{width: '2%'}}>M.I.</div>
-                            <div style={{width: '20%'}}>District</div>
-                            <div style={{width: '5%'}}>Verified</div>
-                            <div style={{width: '15%'}}>Created</div>
-                            <div style={{width: '15%'}}>Email</div>
-                            <div style={{width: '5%'}}> Edit</div>
+                            <div 
+                                aria-label="ID"
+                                style={{width: '2%'}}>ID</div>
+                            <div 
+                                aria-label="Last Name"
+                                style={{width: '10%'}}>Last Name</div>
+                            <div 
+                                aria-label="First Name"
+                                style={{width: '10%'}}>First Name</div>
+                            <div 
+                                aria-label="Middle Initial"
+                                style={{width: '2%'}}>M.I.</div>
+                            <div 
+                                aria-label="District"
+                                style={{width: '20%'}}>District</div>
+                            <div 
+                                aria-label="Verified"
+                                style={{width: '5%'}}>Verified</div>
+                            <div 
+                                aria-label="date of creation"
+                                style={{width: '15%'}}>Created</div>
+                            <div 
+                                aria-label="email"
+                                style={{width: '15%'}}>Email</div>
+                            <div 
+                                aria-label="edit"
+                                style={{width: '5%'}}> Edit</div>
                         </div>
                     </li>
 
                     {users && users.map(user => { 
 
                         const isValid = user.verified;
-
+                        const districtNum = user.district;
 
                         return (
                             <li 
@@ -76,12 +94,25 @@ const UserTable: React.FC = () => {
                                 style={{marginBottom: '.5rem', padding: '.5rem'}}>
                             
                                 <div  style={{display: 'flex', justifyContent: 'space-evenly', textAlign: 'center', alignItems: 'center', marginBottom: '0.5rem'}}>
-                                    <div style={{width: '2%'}}>{user.id}</div>
-                                    <div style={{width: '10%'}}>{user.last_name}</div>
-                                    <div style={{width: '10%'}}>{user.first_name}</div>
-                                    <div style={{width: '2%'}}>{user.middle_initial}</div>
-                                    <div style={{width: '20%'}}>{user.district}</div>
                                     <div 
+                                        aria-label={`${user.id}`}
+                                        style={{width: '2%'}}>{user.id}</div>
+                                    <div 
+                                        aria-label={user.last_name}
+                                        style={{width: '10%'}}>{user.last_name}</div>
+                                    <div 
+                                        aria-label={user.first_name}
+                                        style={{width: '10%'}}>{user.first_name}</div>
+                                    <div 
+                                        aria-label={user.middle_initial}
+                                        style={{width: '2%'}}>{user.middle_initial}</div>
+                                    <div 
+                                        style={{width: '20%'}}
+                                    >
+                                        {districtNum }
+                                    </div>
+                                    <div 
+                                        aria-label={ isValid ? ("Validated") : ("Not Validated")}
                                         style={{width: '5%'}}
                                     >
                                         { isValid ? (
@@ -92,16 +123,25 @@ const UserTable: React.FC = () => {
                                             </div>
                                         )}
                                     </div>
-                                    <div style={{width: '15%'}}>{user.created_at}</div>
-                                    <div style={{width: '15%'}}>{user.email}</div>
-                                    <div style={{width: '5%', display: 'flex', justifyContent: 'space-between', paddingRight: '2rem'}}>
-                                        <button 
+                                    <div 
+                                        aria-label={`${user.created_at}`}
+                                        style={{width: '15%'}}>{user.created_at}</div>
+                                    <div 
+                                        aria-label={user.email}
+                                        style={{width: '15%'}}>{user.email}</div>
+                                    <div 
+                                        className="btnHolder"
+                                        style={{width: '5%', display: 'flex', justifyContent: 'space-between', paddingRight: '2rem'}}
+                                    >
+                                        <button
+                                            aria-label="Edit Button" 
                                             className="smol editBtn" 
                                             type="button"
                                         >
                                                 Edit
                                         </button>
-                                        <button 
+                                        <button
+                                            aria-label="Delete Button" 
                                             className="smol dltBtn" 
                                             type="button"
                                             onClick={()=> {
