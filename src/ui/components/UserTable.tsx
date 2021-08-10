@@ -1,7 +1,6 @@
 import React, { useEffect, ChangeEvent, useState }  from 'react';
 import Filter from './Filter';
 import '../stylesheets/main.css';
-import { timingSafeEqual } from 'crypto';
 
 type UserType = {
     id: number;
@@ -20,6 +19,7 @@ const UserTable: React.FC = () => {
     
 
     const [users, setUsers] = useState<UserType>([]);
+    const [modalState, setModalState] = useState(false);
 
     useEffect(() => {
         fetch('./users.json')
@@ -40,12 +40,36 @@ const UserTable: React.FC = () => {
         }));
     };
 
+    const showModal = () => {
+        setModalState(!modalState);
+
+    };
+
     // const handleAddUser = (): void => {
     // }
 
 
     return (
         <div className="admin-user-table" style={{ marginTop: '2rem'}}>
+            <div className={`modalBG modalShowing-${modalState}`}> 
+                <div className="modalInner">
+                    <img 
+                        src='./caution.png' 
+                        alt="caution sign"
+                        style={{width: '150px'}}
+                    />
+                    <div className="modalText">
+                        <h2>Caution</h2>
+                        <p>Do you wish to proceed?</p>
+                        <div className="modalBtns">
+                            <button> 
+                                Delete 
+                            </button>
+                            <button> Go Back </button>
+                        </div>
+                    </div>
+                </div>    
+            </div>
             <Filter />
             <div style={{width: '100vw', marginTop: '2rem'}}>
                 <h2 style={{textAlign: 'center', textDecoration: 'underline'}}> Users </h2>
@@ -145,7 +169,8 @@ const UserTable: React.FC = () => {
                                             className="smol dltBtn" 
                                             type="button"
                                             onClick={()=> {
-                                                handleDeleteUser(user.id);
+                                                showModal();
+                                                // handleDeleteUser(user.id);
                                             }}
                                         >
                                             X

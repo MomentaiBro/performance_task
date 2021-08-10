@@ -6,6 +6,75 @@ body {
   margin: 0;
 }
 
+.modalBG {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 110, 110, 0.15);
+  z-index: 100;
+}
+
+.modalShowing-true {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.modalInner {
+  position: absolute;
+  height: 25%;
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 100;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  border: 2px solid red;
+  border-radius: 15px;
+  box-shadow: 5px 5px #960000, 10px 10px #bd0000;
+  transition: 0.3s;
+}
+
+.modalText {
+  display: flex;
+  align-items: space-evenly;
+  flex-direction: column;
+}
+
+.modalText h2 {
+  margin-top: -10px;
+}
+
+.modalBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.modalBtns button {
+  width: 70px;
+  height: 40px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  color: white;
+  padding: 3px;
+}
+.modalBtns button:nth-child(1) {
+  background-color: rgb(231, 35, 35);
+  box-shadow: 2px 2px rgb(182, 29, 29);
+}
+.modalBtns button:nth-child(2) {
+  background-color: rgb(42, 78, 236);
+  box-shadow: 2px 2px rgb(30, 56, 170);
+}
+
 .app-admin-panel {
   background: white;
   width: 100%;
